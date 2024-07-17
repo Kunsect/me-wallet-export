@@ -16,7 +16,6 @@ export interface ITaprootWallet {
   payment: bitcoin.Payment
   internalPubkey: Buffer
   tweakedChildNode: bitcoin.Signer
-  privateKey: string | undefined
 }
 
 export interface IP2WPKHWallet {
@@ -24,7 +23,6 @@ export interface IP2WPKHWallet {
   path: string
   childNode: BIP32Interface
   payment: bitcoin.Payment
-  privateKey: string | undefined
 }
 
 export class WalletManager {
@@ -58,8 +56,7 @@ export class WalletManager {
       payment,
       childNode,
       internalPubkey,
-      tweakedChildNode,
-      privateKey: childNode.privateKey?.toString('hex')
+      tweakedChildNode
     }
   }
 
@@ -75,8 +72,7 @@ export class WalletManager {
       address: address!,
       path,
       childNode,
-      payment: bitcoin.payments.p2wpkh({ pubkey: childNode.publicKey }),
-      privateKey: childNode.privateKey?.toString('hex')
+      payment: bitcoin.payments.p2wpkh({ pubkey: childNode.publicKey })
     }
   }
 }

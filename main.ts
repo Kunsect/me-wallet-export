@@ -12,6 +12,6 @@ for (let index = pathIndex; index <= maxPathIndex; index++) {
   const p2wpkh = wallet.p2wpkhWallet
 
   console.log(`---- Account ${index + 1} ----`)
-  console.log(`[Taproot]\naddress: ${taproot.address}\nprivate key: ${taproot.privateKey}\n`)
-  console.log(`[P2WPKH]\naddress: ${p2wpkh.address}\nprivate key: ${p2wpkh.privateKey}\n\n`)
+  console.log(`[Taproot]\naddress: ${taproot.address}\nprivate key: ${taproot.childNode.toWIF()}\n`)
+  console.log(`[P2WPKH]\naddress: ${p2wpkh.address}\nprivate key: ${p2wpkh.childNode.toWIF()}\n\n`)
 }
